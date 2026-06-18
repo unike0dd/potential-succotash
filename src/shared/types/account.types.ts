@@ -1,4 +1,5 @@
-// Purpose: Defines shared account types for the OPS HR Access Core foundation.
+// Purpose: Defines shared account record types for the OPS HR Access Core foundation.
+// Supports: Account classification, hashed account numbers, safe recovery email handling, audit-ready status changes.
 export enum AccountType {
   Owner = 'OWNER',
   SpecialSupport = 'SPECIAL_SUPPORT',

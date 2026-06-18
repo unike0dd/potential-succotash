@@ -1,15 +1,19 @@
-<!-- Purpose: Documents required recovery fields and logging rules. -->
+<!-- Purpose: Defines safe account recovery requirements. -->
+<!-- Supports: Hashed account number rule, fail-safe recovery, audit logging, no plaintext identifiers. -->
 # Account Recovery Policy
 
-Recovery requests must collect and verify:
+## Rules Supported
 
-- First name.
-- Last name.
-- Contact number.
-- Account number, compared only through a hashed value.
-- Account email.
-- Recovery email, when available.
+- Account numbers must be hashed.
+- Account numbers must never be stored in plaintext.
+- Recovery must fail safely if no recovery email exists.
+- Every recovery attempt must be logged.
 
-If no recovery email exists, recovery must fail safely and route to an approved manual review path only after policy approval. The system must not disclose which field failed.
+## Recovery Flow Requirements
 
-Every recovery attempt must be logged with timestamp, account reference, outcome, requester context, and risk flags. Logs must not store plaintext account numbers.
+1. Accept a submitted account number only in transient request memory.
+2. Hash the submitted value using an approved backend process.
+3. Compare only against stored account-number hashes.
+4. If no recovery email exists, return a safe generic response and do not disclose account existence.
+5. Log successful, failed, and blocked attempts.
+6. Rate-limit repeated attempts before production launch.

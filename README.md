@@ -1,25 +1,26 @@
 <!-- Purpose: Introduces the OPS HR Phase 1 Access Core foundation and safe usage boundaries. -->
+<!-- Supports: Access Core scope, no-secrets rule, backend enforcement rule, PII logging rule. -->
 # OPS HR Access Core
 
-This repository starts the Phase 1 foundation for the OPS HR platform access model. It defines account types, role-based access concepts, recovery policy, audit expectations, draft Firestore guardrails, and implementation test plans.
+OPS HR Phase 1 establishes the Access Core foundation only. It documents account types, role-based access control, PII protection, account recovery, audit logging, database planning, Firebase planning, Cloudflare planning, test plans, and future backlog phases.
 
 ## Phase 1 Scope
 
 - Owner, Special Support, Business, and Talent account foundations.
-- Firebase Auth identification with Firestore roles for authorization planning.
-- Least-privilege access policy documentation.
-- PII protection principles for candidate and business data.
-- Account recovery requirements with hashed account numbers.
-- Audit logging expectations for login, failed login, account lifecycle, recovery, role, and PII events.
+- Firebase Auth for identity planning and Firestore roles for authorization planning.
+- Least-privilege access rules for every account type.
+- Policy-controlled and logged access to protected candidate and business PII.
+- Account recovery that uses hashed account numbers only.
+- Audit logging requirements for every sensitive action.
 
-## Not Included Yet
+## Not Included
 
-- No live credentials, API keys, Firebase config, OAuth secrets, Cloudflare tokens, or deployment files.
+- No secrets, API keys, Firebase credentials, Cloudflare credentials, or live deployment files.
 - No payment logic.
-- No AI/LLM logic.
-- No full UI or app screens.
-- No installed packages or generated app framework.
+- No AI or LLM logic.
+- No application screens or production UI.
+- No package installation or generated framework code.
 
-## Security Reminder
+## Security Boundary
 
-Frontend checks are usability aids only. Firebase Auth identifies the user, Firestore roles define authorization, Firestore Security Rules protect data, and backend functions must handle sensitive actions.
+Frontend authorization is non-authoritative. Backend services and Firestore Security Rules must enforce access decisions, create audit events, and deny protected PII unless policy explicitly allows access.

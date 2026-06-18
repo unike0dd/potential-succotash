@@ -1,12 +1,9 @@
-// Purpose: Lists initial role values for Phase 1 RBAC planning.
-import { RoleName } from '../types/rbac.types';
-
-export const ROLES: readonly RoleName[] = [
-  RoleName.PlatformOwner,
-  RoleName.SupportLevelOne,
-  RoleName.SupportLevelTwo,
-  RoleName.SupportLevelThree,
-  RoleName.BusinessAdmin,
-  RoleName.BusinessMember,
-  RoleName.TalentMember,
-];
+// Purpose: Provides role constants for RBAC planning.
+// Supports: Least privilege and backend-enforced authorization decisions.
+export const ROLES = {
+  PlatformOwner: 'PLATFORM_OWNER',
+  SupportLevel1: 'SUPPORT_LEVEL_1',
+  SupportLevel2: 'SUPPORT_LEVEL_2',
+  BusinessAdmin: 'BUSINESS_ADMIN',
+  TalentUser: 'TALENT_USER',
+} as const;

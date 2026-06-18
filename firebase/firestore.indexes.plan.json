@@ -1,22 +1,9 @@
 {
-  "purpose": "Plans future Firestore indexes for OPS HR Access Core without deploying live indexes.",
-  "indexes": [
-    {
-      "collectionGroup": "auditLogs",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "targetAccountId", "order": "ASCENDING" },
-        { "fieldPath": "occurredAtIso", "order": "DESCENDING" }
-      ]
-    },
-    {
-      "collectionGroup": "recoveryAttempts",
-      "queryScope": "COLLECTION",
-      "fields": [
-        { "fieldPath": "accountEmail", "order": "ASCENDING" },
-        { "fieldPath": "attemptedAtIso", "order": "DESCENDING" }
-      ]
-    }
+  "purpose": "Plans future Firestore indexes without deployment configuration or credentials.",
+  "rulesSupported": [
+    "Audit lookup by target and createdAt",
+    "Recovery attempt review without plaintext account numbers",
+    "PII access request review by decision"
   ],
-  "fieldOverrides": []
+  "indexes": []
 }

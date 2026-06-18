@@ -1,7 +1,11 @@
-<!-- Purpose: Tracks future Owner panel work without building UI in Phase 1. -->
-# Phase 3 Owner Panel Backlog
+<!-- Purpose: Tracks future work for Phase 03 Owner Panel. -->
+<!-- Supports: Phase discipline, backend enforcement, no secrets, no payment logic, no AI logic. -->
+# Phase 03 Owner Panel
 
-- Design Owner workflows for assign, remove, block, suspend, and delete actions.
-- Route all sensitive Owner actions through backend functions.
-- Require audit reason capture before role or status changes.
-- Keep protected PII hidden unless policy explicitly approves and logs access.
+## Planned Work
+
+Plan owner governance workflows after backend enforcement exists; do not grant casual PII access.
+
+## Rules Supported
+
+Keep work scoped, security-oriented, and dependent on backend authorization for sensitive actions.

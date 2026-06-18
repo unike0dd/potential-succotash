@@ -1,12 +1,12 @@
-<!-- Purpose: Plans Firestore Security Rules for OPS HR Phase 1 without creating live deployment rules. -->
+<!-- Purpose: Plans Firestore rule hardening after the draft foundation. -->
+<!-- Supports: Backend enforcement, deny-by-default access, PII protection, audit integrity. -->
 # Security Rules Plan
 
-Firestore Security Rules must protect data after Firebase Auth identifies the user. Rules should read role and permission data from Firestore, then allow only the minimum access needed.
+Phase 1 includes a draft rules file only. Future work must validate each collection with emulator tests before deployment.
 
-## Phase 1 Rule Goals
+## Rules Supported
 
-- Verify `request.auth.uid` for every protected read or write.
-- Use Firestore role records to decide access.
-- Keep Owner PII access policy-controlled and logged through backend functions.
-- Block direct client writes to audit logs, recovery attempts, role records, and sensitive account status fields.
-- Require backend functions for suspensions, blocks, deletions, role changes, and recovery decisions.
+- Deny direct client writes to roles, audit logs, recovery attempts, and protected PII.
+- Allow users to read only their own safe account data.
+- Require backend functions for sensitive actions.
+- Keep Owner PII access policy-controlled and logged.

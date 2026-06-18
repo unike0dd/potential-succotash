@@ -1,21 +1,17 @@
-// Purpose: Defines PII classification types for policy-controlled OPS HR data access.
-export enum PiiClassification {
-  Public = 'PUBLIC',
-  Internal = 'INTERNAL',
-  Protected = 'PROTECTED',
-  Restricted = 'RESTRICTED',
-}
+// Purpose: Defines PII classification and policy-controlled access request types.
+// Supports: Owner no-casual-PII rule, least privilege, purpose-bound access, audit logging.
+export type PiiClass = 'PUBLIC' | 'INTERNAL' | 'PROTECTED_CANDIDATE_PII' | 'PROTECTED_BUSINESS_PII';
 
-export interface PiiFieldPolicy {
-  fieldName: string;
-  classification: PiiClassification;
-  maskedByDefault: boolean;
-  requiresAuditLog: boolean;
-  allowedPurpose: string;
-}
+export type PiiAccessDecision = 'PENDING' | 'APPROVED' | 'DENIED' | 'EXPIRED';
 
-export interface PiiAccessDecision {
-  allowed: boolean;
-  reason: string;
-  mustLogAuditEvent: boolean;
+export interface PiiAccessRequest {
+  id: string;
+  requesterAccountId: string;
+  targetRecordId: string;
+  piiClass: PiiClass;
+  purpose: string;
+  decision: PiiAccessDecision;
+  auditEventId: string;
+  createdAtIso: string;
+  expiresAtIso?: string;
 }

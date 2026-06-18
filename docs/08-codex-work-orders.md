@@ -1,8 +1,11 @@
-<!-- Purpose: Lists simple future Codex work orders for the OPS HR Access Core roadmap. -->
+<!-- Purpose: Tracks safe sequencing for future OPS HR work orders. -->
+<!-- Supports: Access Core phase discipline, no secrets, no payment logic, no AI logic. -->
 # Codex Work Orders
 
-1. Convert test-plan files into executable TypeScript tests after tooling is approved.
-2. Implement a backend permission resolver that reads Firebase Auth identity and Firestore roles.
-3. Implement account-number hashing and safe recovery comparison.
-4. Implement audit log writes for all sensitive actions.
-5. Expand draft Firestore rules into reviewed, deployable rules only after security review.
+## Completed Foundation Target
+
+- Work Order 001: Phase 1 Access Core documentation, shared types, constants, draft rules, planning files, and test plans.
+
+## Rules Supported
+
+Future work orders must remain scoped, avoid secrets, avoid live credentials, and explicitly document backend enforcement for sensitive operations.

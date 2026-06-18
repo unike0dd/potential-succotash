@@ -1,13 +1,19 @@
-<!-- Purpose: Sketches the draft data structure without live service credentials. -->
-# Database Structure Draft
+<!-- Purpose: Plans the Phase 1 Firestore collection structure. -->
+<!-- Supports: Access Core scope, PII separation, hashed recovery identifiers, audit logging. -->
+# Database Structure Plan
 
-Collections are conceptual and may map to Firestore or another backend later.
+## Collections
 
-- `accounts`: account profile, account type, status, hashed account number reference.
-- `roles`: Firestore role assignment records used by rules and backend authorization.
-- `permissions`: permission definitions used by backend authorization.
-- `recoveryAttempts`: recovery audit records with masked input references.
-- `auditLogs`: immutable sensitive-event records.
-- `businessProfiles`: business-owned profile records.
-- `talentProfiles`: talent-owned profile records with PII segmentation.
-- `piiPolicies`: policy records that define field-level PII handling and audit requirements.
+| Collection | Purpose | Sensitive Notes |
+| --- | --- | --- |
+| `accounts` | Basic account records and status | Stores `accountNumberHash`, never plaintext account numbers |
+| `roles` | Role and permission assignment | Backend-managed only |
+| `businessProfiles` | Business profile records | Separate protected contact fields from public fields |
+| `talentProfiles` | Talent profile records | Separate protected PII from public/profile fields |
+| `piiAccessRequests` | Policy approvals for PII access | Must be logged and time-bound |
+| `recoveryAttempts` | Recovery attempt records | No plaintext account numbers |
+| `auditLogs` | Sensitive action audit events | Append-only through backend |
+
+## Rules Supported
+
+The structure separates identity, role, business, talent, recovery, PII approval, and audit concerns so future backend enforcement can deny broad or casual data access.

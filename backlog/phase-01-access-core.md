@@ -1,12 +1,11 @@
-<!-- Purpose: Tracks the next small tasks for completing Phase 1 Access Core. -->
-# Phase 1 Access Core Backlog
+<!-- Purpose: Tracks future work for Phase 01 Access Core. -->
+<!-- Supports: Phase discipline, backend enforcement, no secrets, no payment logic, no AI logic. -->
+# Phase 01 Access Core
 
-## Next Tasks
+## Planned Work
 
-- Choose backend function boundaries for sensitive actions.
-- Define hashed account number generation and comparison flow.
-- Define Firestore role documents used by authorization.
-- Add audit log persistence implementation.
-- Add formal permission resolver tests.
-- Draft support-level escalation and approval workflow.
-- Define PII field segmentation for talent and business profiles.
+Document access policy, shared types, constants, draft rules, Firebase plans, Cloudflare plans, and test plans.
+
+## Rules Supported
+
+Keep work scoped, security-oriented, and dependent on backend authorization for sensitive actions.

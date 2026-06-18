@@ -1,10 +1,5 @@
-<!-- Purpose: Plans Firebase Auth provider usage for OPS HR without storing credentials. -->
+<!-- Purpose: Plans identity provider requirements for OPS HR accounts. -->
+<!-- Supports: Firebase Auth identification, recovery safety, no secrets. -->
 # Firebase Auth Provider Plan
 
-Firebase Auth identifies the user. Firestore roles and backend authorization decide what the user can access.
-
-## Phase 1 Providers
-
-- Email/password or approved enterprise provider may be selected later.
-- MFA should be required for Owner and Special Support accounts before production.
-- Provider secrets, OAuth client secrets, and private credentials must not be committed.
+Firebase Auth may identify users, but Firestore roles and backend policy must authorize them. Recovery email handling must not disclose account existence.

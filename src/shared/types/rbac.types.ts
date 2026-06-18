@@ -1,32 +1,26 @@
-// Purpose: Defines RBAC types for roles, support levels, and permission grants.
-export enum SupportLevel {
-  LevelOne = 'LEVEL_1',
-  LevelTwo = 'LEVEL_2',
-  LevelThree = 'LEVEL_3',
-  RestrictedAdmin = 'RESTRICTED_ADMIN',
-}
+// Purpose: Defines role and permission types for Phase 1 RBAC planning.
+// Supports: Least privilege, backend enforcement, support scoping, Owner no-casual-PII access.
+export type RoleName =
+  | 'PLATFORM_OWNER'
+  | 'SUPPORT_LEVEL_1'
+  | 'SUPPORT_LEVEL_2'
+  | 'BUSINESS_ADMIN'
+  | 'TALENT_USER';
 
-export enum RoleName {
-  PlatformOwner = 'PLATFORM_OWNER',
-  SupportLevelOne = 'SUPPORT_LEVEL_1',
-  SupportLevelTwo = 'SUPPORT_LEVEL_2',
-  SupportLevelThree = 'SUPPORT_LEVEL_3',
-  BusinessAdmin = 'BUSINESS_ADMIN',
-  BusinessMember = 'BUSINESS_MEMBER',
-  TalentMember = 'TALENT_MEMBER',
-}
+export type PermissionName =
+  | 'MANAGE_PLATFORM_POLICY'
+  | 'MANAGE_ACCOUNT_STATUS'
+  | 'REQUEST_PII_ACCESS'
+  | 'APPROVE_PII_ACCESS'
+  | 'VIEW_OWN_ACCOUNT'
+  | 'VIEW_OWN_BUSINESS'
+  | 'VIEW_OWN_TALENT_PROFILE'
+  | 'CREATE_AUDIT_EVENT';
 
 export interface RoleAssignment {
   accountId: string;
   role: RoleName;
-  supportLevel?: SupportLevel;
+  permissions: PermissionName[];
   assignedByAccountId: string;
   assignedAtIso: string;
-  reason: string;
-}
-
-export interface PermissionGrant {
-  permission: string;
-  allowed: boolean;
-  requiresAuditLog: boolean;
 }

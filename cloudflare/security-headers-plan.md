@@ -1,13 +1,5 @@
-<!-- Purpose: Plans baseline web security headers without creating live deployment config. -->
-# Security Headers Plan
+<!-- Purpose: Plans security headers without live Cloudflare credentials. -->
+<!-- Supports: No live deployment files, browser hardening, Access Core safety. -->
+# Cloudflare Security Headers Plan
 
-Future deployment should include conservative security headers.
-
-## Target Headers
-
-- Content-Security-Policy.
-- Strict-Transport-Security.
-- X-Frame-Options or CSP frame ancestors.
-- Referrer-Policy.
-- Permissions-Policy.
-- Secure, HttpOnly, SameSite cookies where cookies are used.
+Future headers should include CSP, HSTS, X-Frame-Options or frame-ancestors, Referrer-Policy, and safe CORS. Do not add live zone IDs or tokens here.

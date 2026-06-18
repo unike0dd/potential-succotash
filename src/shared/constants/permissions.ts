@@ -1,14 +1,12 @@
-// Purpose: Defines first-pass permission keys for backend authorization planning.
-export enum PermissionKey {
-  ManagePlatformSettings = 'MANAGE_PLATFORM_SETTINGS',
-  AssignRoles = 'ASSIGN_ROLES',
-  RemoveRoles = 'REMOVE_ROLES',
-  BlockUsers = 'BLOCK_USERS',
-  SuspendUsers = 'SUSPEND_USERS',
-  DeleteUsers = 'DELETE_USERS',
-  ViewAuditSummary = 'VIEW_AUDIT_SUMMARY',
-  ViewMaskedSupportData = 'VIEW_MASKED_SUPPORT_DATA',
-  ViewAuthorizedCandidateData = 'VIEW_AUTHORIZED_CANDIDATE_DATA',
-  ViewOwnTalentProfile = 'VIEW_OWN_TALENT_PROFILE',
-  RequestAccountRecovery = 'REQUEST_ACCOUNT_RECOVERY',
-}
+// Purpose: Provides permission constants for Phase 1 access planning.
+// Supports: Explicit permissions, PII access approval, and audit event creation.
+export const PERMISSIONS = {
+  ManagePlatformPolicy: 'MANAGE_PLATFORM_POLICY',
+  ManageAccountStatus: 'MANAGE_ACCOUNT_STATUS',
+  RequestPiiAccess: 'REQUEST_PII_ACCESS',
+  ApprovePiiAccess: 'APPROVE_PII_ACCESS',
+  ViewOwnAccount: 'VIEW_OWN_ACCOUNT',
+  ViewOwnBusiness: 'VIEW_OWN_BUSINESS',
+  ViewOwnTalentProfile: 'VIEW_OWN_TALENT_PROFILE',
+  CreateAuditEvent: 'CREATE_AUDIT_EVENT',
+} as const;

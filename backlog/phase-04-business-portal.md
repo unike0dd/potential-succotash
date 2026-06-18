@@ -1,7 +1,11 @@
-<!-- Purpose: Tracks future Business portal work without building UI in Phase 1. -->
-# Phase 4 Business Portal Backlog
+<!-- Purpose: Tracks future work for Phase 04 Business Portal. -->
+<!-- Supports: Phase discipline, backend enforcement, no secrets, no payment logic, no AI logic. -->
+# Phase 04 Business Portal
 
-- Define business profile ownership and membership rules.
-- Define approved Talent/candidate fields for business workflows.
-- Add backend checks that prevent cross-business data access.
-- Add audit logging for exceptional business data access.
+## Planned Work
+
+Plan business workflows that expose only authorized candidate-facing data.
+
+## Rules Supported
+
+Keep work scoped, security-oriented, and dependent on backend authorization for sensitive actions.

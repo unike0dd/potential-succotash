@@ -1,7 +1,11 @@
-<!-- Purpose: Tracks planned work for turning draft rules into reviewed security rules. -->
-# Phase 2 Security Rules Backlog
+<!-- Purpose: Tracks future work for Phase 02 Security Rules. -->
+<!-- Supports: Phase discipline, backend enforcement, no secrets, no payment logic, no AI logic. -->
+# Phase 02 Security Rules
 
-- Model Firestore role documents used by rules.
-- Convert the draft rules into deployable rules after review.
-- Add emulator-based tests for account, role, audit, recovery, and PII access paths.
-- Verify clients cannot write audit logs or sensitive account state directly.
+## Planned Work
+
+Validate Firestore Security Rules with emulator tests before deployment.
+
+## Rules Supported
+
+Keep work scoped, security-oriented, and dependent on backend authorization for sensitive actions.

@@ -1,8 +1,9 @@
 // Purpose: Documents Phase 1 RBAC test scenarios without requiring a test runner yet.
+// Supports: Access Core validation planning, backend enforcement, no secrets, and auditability.
 export const rbacTestPlan = [
-  'Owner can manage platform settings without default raw PII access.',
-  'Support access is limited by assigned support level.',
-  'Business accounts cannot read other business records.',
-  'Talent accounts can read only their own talent profile.',
-  'Role changes create audit log records.',
+  'Owner lacks default raw PII access.',
+  'Support is scoped.',
+  'Business cannot read other businesses.',
+  'Talent reads only self.',
+  'Role changes are audited.',
 ] as const;

@@ -1,16 +1,14 @@
-<!-- Purpose: Defines small milestones for the OPS HR Phase 1 foundation. -->
+<!-- Purpose: Defines high-level milestones after Access Core foundation. -->
+<!-- Supports: Phase discipline, security-first sequencing, backend enforcement before UI expansion. -->
 # Milestones
 
-## Milestone 1: Access Foundation
+1. Access Core foundation.
+2. Firestore rules emulator validation.
+3. Backend audit event writer.
+4. Backend recovery workflow.
+5. PII access approval workflow.
+6. Minimal role-aware frontend usability after enforcement exists.
 
-- Account, RBAC, recovery, PII, and audit contracts exist.
-- Draft data structure and rule plan exist.
+## Rules Supported
 
-## Milestone 2: Backend Enforcement
-
-- Sensitive actions run through backend functions.
-- Firestore roles drive access decisions.
-
-## Milestone 3: Security Validation
-
-- Rules, recovery, RBAC, and audit behavior have executable tests.
+Security enforcement and auditability should precede user-facing screens for sensitive workflows.

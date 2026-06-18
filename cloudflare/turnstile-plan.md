@@ -1,10 +1,5 @@
-<!-- Purpose: Plans Cloudflare Turnstile use without adding site keys or secrets. -->
+<!-- Purpose: Plans optional Turnstile abuse checks without credentials. -->
+<!-- Supports: Recovery abuse reduction, no secrets, no live Cloudflare credentials. -->
 # Cloudflare Turnstile Plan
 
-Turnstile can protect public recovery and sign-in surfaces from automated abuse.
-
-## Plan
-
-- Add Turnstile to recovery request and high-risk sign-in flows later.
-- Validate Turnstile responses only in backend functions.
-- Store site keys and secret keys outside the repository.
+Turnstile may be considered for recovery and support forms in a later phase. This file intentionally contains no site keys or secret keys.

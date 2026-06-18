@@ -1,8 +1,8 @@
-// Purpose: Documents Phase 1 account recovery test scenarios without implementation dependencies.
+// Purpose: Documents Phase 1 account recovery test scenarios without requiring a test runner yet.
+// Supports: Access Core validation planning, backend enforcement, no secrets, and auditability.
 export const recoveryTestPlan = [
-  'Recovery requires first name, last name, contact number, account number, and account email.',
-  'Optional recovery email is accepted when present.',
-  'Plaintext account numbers are never persisted.',
-  'Failed and successful recovery attempts are logged.',
-  'Repeated risky attempts can be flagged for manual review.',
+  'Submitted account numbers are hashed.',
+  'plaintext is never stored.',
+  'missing recovery email fails safely.',
+  'every attempt is audited.',
 ] as const;

@@ -1,12 +1,18 @@
-<!-- Purpose: Defines how PII must be classified and protected. -->
+<!-- Purpose: Defines protected PII handling rules for candidates and businesses. -->
+<!-- Supports: Owner no-casual-PII rule, least privilege, audit logging, backend enforcement. -->
 # PII Data Policy
 
-PII includes names, contact numbers, emails, account numbers, recovery emails, candidate profile details, and business-sensitive records.
+## Protected PII
 
-## Rules
+Protected PII includes government identifiers, personal contact details, private candidate profile fields, private business contact details, recovery emails, and account-number hashes.
 
-- Store account numbers only as hashes or secure irreversible tokens.
-- Reveal the minimum data needed for a task.
-- Mask PII in logs and support views by default.
-- Require backend authorization before any PII read.
-- Record audit events for exceptional PII access.
+## Rules Supported
+
+- The Owner controls the platform but must not casually view protected candidate or business PII.
+- PII access must be purpose-bound, policy-approved, time-limited where possible, and logged.
+- Support access to PII must require an assigned support case or approved escalation.
+- Frontend masking is helpful but not sufficient. Backend enforcement is required.
+
+## Logging Requirement
+
+Every PII read, export, update, reveal, or failed access attempt must create an audit event with actor, target, action, purpose, timestamp, and result.

@@ -1,9 +1,15 @@
-<!-- Purpose: Provides a readable first-pass RBAC matrix for Phase 1. -->
+<!-- Purpose: Defines the Phase 1 role and permission matrix. -->
+<!-- Supports: Least privilege, support scoping, PII protection, audit logging. -->
 # RBAC Matrix
 
-| Account Type | Baseline Access | Restricted Access |
-| --- | --- | --- |
-| Owner | Platform settings, role administration, audit summaries | Raw candidate/business PII unless explicitly authorized and logged |
-| Special Support | Support queues allowed by support level | Unassigned PII, role escalation, deletion without approval |
-| Business | Own organization profile, authorized candidate-facing data | Other businesses, private talent PII, platform administration |
-| Talent | Own profile, approved jobs, public business data | Other talent profiles, business private records, admin tools |
+| Role | Purpose | Allowed Phase 1 Access | PII Default | Audit Required |
+| --- | --- | --- | --- | --- |
+| Platform Owner | Platform governance | Manage roles, policies, and account status through backend workflows | Denied unless policy-approved | Yes |
+| Support Level 1 | Basic account help | View non-sensitive account status and support queues | Denied | Yes |
+| Support Level 2 | Escalated support | Limited troubleshooting fields approved by policy | Denied unless case-approved | Yes |
+| Business Admin | Business account management | Own business profile and approved candidate workflow metadata | Limited approved candidate-facing data | Yes |
+| Talent User | Candidate profile owner | Own profile and approved public/business-facing records | Own PII only | Yes for sensitive changes |
+
+## Rules Supported
+
+RBAC must be enforced by backend logic and Firestore Security Rules. Role changes, permission changes, and sensitive reads must create audit events.

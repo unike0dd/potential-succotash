@@ -1,23 +1,22 @@
-<!-- Purpose: Defines required audit events and minimum audit fields. -->
+<!-- Purpose: Defines audit event requirements for sensitive activity. -->
+<!-- Supports: Sensitive action logging, recovery logging, PII logging, role-change logging. -->
 # Audit Log Policy
 
-## Events That Must Be Logged
+## Rules Supported
 
-- Login.
-- Failed login.
-- Account created.
-- Account suspended.
-- Account blocked.
-- Account deleted.
-- Role assigned.
-- Role removed.
-- Recovery requested.
-- Recovery failed.
-- Recovery succeeded.
-- PII access attempted.
-- PII access denied.
-- PII access approved.
+Every sensitive action must create an audit event. Sensitive actions include login failures, recovery attempts, role changes, permission changes, account suspension, account deletion, PII access, PII export, and blocked access attempts.
 
-## Minimum Fields
+## Required Fields
 
-Each audit record should include actor account ID, target account ID when applicable, action, timestamp, outcome, reason, source context, and metadata with PII minimized or masked.
+- `id`
+- `actorAccountId` when known
+- `targetAccountId` when applicable
+- `action`
+- `result`
+- `purpose`
+- `createdAtIso`
+- `metadata` with no secrets and no plaintext account numbers
+
+## Storage Rule
+
+Audit logs should be append-only and unavailable for direct client writes. Backend services should create audit events.

@@ -1,8 +1,8 @@
-// Purpose: Documents Phase 1 PII access test scenarios for future backend enforcement.
-export const piiAccessTestPlan = [
-  'Candidate PII is masked from casual Owner views.',
-  'Support views expose only the minimum required PII.',
-  'Business accounts see only authorized candidate-facing fields.',
-  'Talent accounts cannot read other talent PII.',
-  'Exceptional PII access creates an audit log record.',
+// Purpose: Documents Phase 1 PII access test scenarios without requiring a test runner yet.
+// Supports: Access Core validation planning, backend enforcement, no secrets, and auditability.
+export const pii_accessTestPlan = [
+  'Owner PII access requires approval.',
+  'denied PII access is audited.',
+  'approved access is purpose-bound.',
+  'exports are denied until policy exists.',
 ] as const;

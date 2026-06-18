@@ -1,10 +1,5 @@
-<!-- Purpose: Plans Firebase App Check use without adding live project credentials. -->
+<!-- Purpose: Plans Firebase App Check adoption without adding live credentials. -->
+<!-- Supports: Backend enforcement, abuse reduction, no live Firebase credentials. -->
 # Firebase App Check Plan
 
-App Check should be enabled before production traffic to reduce abuse from unauthorized clients.
-
-## Plan
-
-- Register approved web/app clients in Firebase using environment-specific settings outside the repo.
-- Enforce App Check for callable/backend functions that handle recovery, role changes, and PII decisions.
-- Keep any provider keys or private values out of the repository.
+Use App Check in a future implementation to reduce abuse of Firebase resources. This file contains no app IDs, keys, or production configuration.

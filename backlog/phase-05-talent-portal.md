@@ -1,7 +1,11 @@
-<!-- Purpose: Tracks future Talent portal work without building UI in Phase 1. -->
-# Phase 5 Talent Portal Backlog
+<!-- Purpose: Tracks future work for Phase 05 Talent Portal. -->
+<!-- Supports: Phase discipline, backend enforcement, no secrets, no payment logic, no AI logic. -->
+# Phase 05 Talent Portal
 
-- Define Talent profile ownership rules.
-- Define public job and approved business information views.
-- Prevent Talent accounts from reading other Talent private profiles.
-- Add tests for self-profile access and denied cross-profile access.
+## Planned Work
+
+Plan talent self-service workflows with protected PII controls.
+
+## Rules Supported
+
+Keep work scoped, security-oriented, and dependent on backend authorization for sensitive actions.

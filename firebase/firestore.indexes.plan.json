@@ -1,0 +1,22 @@
+{
+  "purpose": "Plans future Firestore indexes for OPS HR Access Core without deploying live indexes.",
+  "indexes": [
+    {
+      "collectionGroup": "auditLogs",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "targetAccountId", "order": "ASCENDING" },
+        { "fieldPath": "occurredAtIso", "order": "DESCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "recoveryAttempts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "accountEmail", "order": "ASCENDING" },
+        { "fieldPath": "attemptedAtIso", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

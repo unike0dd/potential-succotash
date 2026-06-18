@@ -1,0 +1,53 @@
+// Purpose: Drafts Firestore-style access guardrails; not a live deployment rules file.
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function roleData() {
+      return get(/databases/$(database)/documents/roles/$(request.auth.uid)).data;
+    }
+
+    function hasRole(roleName) {
+      return signedIn() && roleData().role == roleName;
+    }
+
+    function isOwner() {
+      return hasRole('PLATFORM_OWNER');
+    }
+
+    function isBusinessMemberOf(businessId) {
+      return signedIn() && roleData().businessId == businessId;
+    }
+
+    match /accounts/{accountId} {
+      allow read: if signedIn() && request.auth.uid == accountId;
+      allow write: if false;
+    }
+
+    match /businessProfiles/{businessId} {
+      allow read: if isBusinessMemberOf(businessId);
+      allow write: if false;
+    }
+
+    match /talentProfiles/{talentId} {
+      allow read: if signedIn() && request.auth.uid == talentId;
+      allow write: if false;
+    }
+
+    match /roles/{accountId} {
+      allow read: if signedIn() && request.auth.uid == accountId;
+      allow write: if false;
+    }
+
+    match /auditLogs/{logId} {
+      allow read, write: if false;
+    }
+
+    match /recoveryAttempts/{attemptId} {
+      allow read, write: if false;
+    }
+  }
+}

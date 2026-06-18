@@ -1,4 +1,12 @@
 // Purpose: Defines account recovery request and audit-safe recovery attempt types.
+export enum RecoveryOutcome {
+  Matched = 'MATCHED',
+  NotMatched = 'NOT_MATCHED',
+  MissingRecoveryEmail = 'MISSING_RECOVERY_EMAIL',
+  Locked = 'LOCKED',
+  ManualReview = 'MANUAL_REVIEW',
+}
+
 export interface AccountRecoveryRequest {
   firstName: string;
   lastName: string;
@@ -12,7 +20,7 @@ export interface RecoveryAttemptLog {
   id: string;
   accountEmail: string;
   accountNumberHashPrefix?: string;
-  outcome: 'matched' | 'not_matched' | 'locked' | 'manual_review';
+  outcome: RecoveryOutcome;
   attemptedAtIso: string;
   riskFlags: string[];
 }

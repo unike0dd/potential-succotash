@@ -1,7 +1,9 @@
-// Purpose: Lists supported OPS HR account types for consistent shared usage.
-export const ACCOUNT_TYPES = {
-  OWNER: 'owner',
-  SPECIAL_SUPPORT: 'special_support',
-  BUSINESS: 'business',
-  TALENT: 'talent',
-} as const;
+// Purpose: Lists supported OPS HR account type values for consistent shared usage.
+import { AccountType } from '../types/account.types';
+
+export const ACCOUNT_TYPES: readonly AccountType[] = [
+  AccountType.Owner,
+  AccountType.SpecialSupport,
+  AccountType.Business,
+  AccountType.Talent,
+];

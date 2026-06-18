@@ -6,12 +6,20 @@ service cloud.firestore {
       return request.auth != null;
     }
 
-    function roleDoc() {
-      return get(/databases/$(database)/documents/roles/$(request.auth.uid));
+    function roleData() {
+      return get(/databases/$(database)/documents/roles/$(request.auth.uid)).data;
     }
 
     function hasRole(roleName) {
-      return signedIn() && roleDoc().data.role == roleName;
+      return signedIn() && roleData().role == roleName;
+    }
+
+    function isOwner() {
+      return hasRole('PLATFORM_OWNER');
+    }
+
+    function isBusinessMemberOf(businessId) {
+      return signedIn() && roleData().businessId == businessId;
     }
 
     match /accounts/{accountId} {
@@ -20,7 +28,7 @@ service cloud.firestore {
     }
 
     match /businessProfiles/{businessId} {
-      allow read: if signedIn() && hasRole('business_member');
+      allow read: if isBusinessMemberOf(businessId);
       allow write: if false;
     }
 

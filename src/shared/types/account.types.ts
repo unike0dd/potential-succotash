@@ -1,7 +1,18 @@
-// Purpose: Defines shared account type shapes for the OPS HR Access Core foundation.
-export type AccountType = 'owner' | 'special_support' | 'business' | 'talent';
+// Purpose: Defines shared account types for the OPS HR Access Core foundation.
+export enum AccountType {
+  Owner = 'OWNER',
+  SpecialSupport = 'SPECIAL_SUPPORT',
+  Business = 'BUSINESS',
+  Talent = 'TALENT',
+}
 
-export type AccountStatus = 'active' | 'suspended' | 'blocked' | 'deleted' | 'pending_recovery';
+export enum AccountStatus {
+  Active = 'ACTIVE',
+  Suspended = 'SUSPENDED',
+  Blocked = 'BLOCKED',
+  Deleted = 'DELETED',
+  PendingRecovery = 'PENDING_RECOVERY',
+}
 
 export interface AccountRecord {
   id: string;

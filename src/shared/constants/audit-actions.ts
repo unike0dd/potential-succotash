@@ -1,17 +1,17 @@
-// Purpose: Defines audit action constants for required sensitive event logging.
-export const AUDIT_ACTIONS = {
-  LOGIN: 'login',
-  FAILED_LOGIN: 'failed_login',
-  ACCOUNT_CREATED: 'account_created',
-  ACCOUNT_SUSPENDED: 'account_suspended',
-  ACCOUNT_BLOCKED: 'account_blocked',
-  ACCOUNT_DELETED: 'account_deleted',
-  ROLE_ASSIGNED: 'role_assigned',
-  ROLE_REMOVED: 'role_removed',
-  RECOVERY_REQUESTED: 'recovery_requested',
-  RECOVERY_FAILED: 'recovery_failed',
-  RECOVERY_SUCCEEDED: 'recovery_succeeded',
-  PII_ACCESS_ATTEMPTED: 'pii_access_attempted',
-  PII_ACCESS_DENIED: 'pii_access_denied',
-  PII_ACCESS_APPROVED: 'pii_access_approved',
-} as const;
+// Purpose: Defines audit action values for required sensitive event logging.
+export enum AuditAction {
+  Login = 'LOGIN',
+  FailedLogin = 'FAILED_LOGIN',
+  AccountCreated = 'ACCOUNT_CREATED',
+  AccountSuspended = 'ACCOUNT_SUSPENDED',
+  AccountBlocked = 'ACCOUNT_BLOCKED',
+  AccountDeleted = 'ACCOUNT_DELETED',
+  RoleAssigned = 'ROLE_ASSIGNED',
+  RoleRemoved = 'ROLE_REMOVED',
+  RecoveryRequested = 'RECOVERY_REQUESTED',
+  RecoveryFailed = 'RECOVERY_FAILED',
+  RecoverySucceeded = 'RECOVERY_SUCCEEDED',
+  PiiAccessAttempted = 'PII_ACCESS_ATTEMPTED',
+  PiiAccessDenied = 'PII_ACCESS_DENIED',
+  PiiAccessApproved = 'PII_ACCESS_APPROVED',
+}
